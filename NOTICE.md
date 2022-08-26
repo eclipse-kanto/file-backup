@@ -39,11 +39,11 @@ eclipse/ditto-clients-golang (v0.0.0-20211126080925-0676267c80ac)
 * Project: https://github.com/eclipse/ditto-clients-golang
 * Source:  https://github.com/eclipse/ditto-clients-golang/tree/3e1c6149fedef558ee14270fec671abc77e36d7c
 
-eclipse/paho.mqtt.golang (1.3.5)
+eclipse/paho.mqtt.golang (1.4.1)
 
 * License: Eclipse Distribution License v1.0
 * Project: https://github.com/eclipse/paho.mqtt.golang
-* Source:  https://github.com/eclipse/paho.mqtt.golang/releases/tag/v1.3.5
+* Source:  https://github.com/eclipse/paho.mqtt.golang/releases/tag/v1.4.1
 
 aws/aws-sdk-go-v2 (1.7.0)
 
