@@ -377,7 +377,7 @@ func (br *BackupAndRestore) doBackup(status *backupAndRestoreStatus, providers [
 		err := os.RemoveAll(dir)
 
 		if err != nil {
-			logger.Warningf("failed to delete temp directory %s: %v", dir, err)
+			logger.Warnf("failed to delete temp directory %s: %v", dir, err)
 		}
 	}
 
@@ -422,7 +422,7 @@ func (br *BackupAndRestore) doRestore(status *backupAndRestoreStatus, providers 
 		err := os.Remove(backupFile)
 
 		if err != nil {
-			logger.Warningf("failed to delete dowloaded file %s: %v", backupFile, err)
+			logger.Warnf("failed to delete dowloaded file %s: %v", backupFile, err)
 		}
 	}
 
@@ -465,7 +465,7 @@ func (br *BackupAndRestore) restoreFromFile(backupFile string, dir string) error
 		err := os.RemoveAll(dir)
 
 		if err != nil {
-			logger.Warningf("failed to delete temp directory %s: %v", dir, err)
+			logger.Warnf("failed to delete temp directory %s: %v", dir, err)
 		}
 	}
 
