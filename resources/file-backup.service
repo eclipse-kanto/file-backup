@@ -7,7 +7,7 @@ Requires=mosquitto.service
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/file-backup -configFile /etc/file-backup/config.json
+ExecStart=/usr/bin/file-backup -configFile /etc/file-backup/config.json
 Restart=always
 
 [Install]
