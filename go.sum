@@ -58,8 +58,6 @@ github.com/eclipse/ditto-clients-golang v0.0.0-20211126080253-3e1c6149fede/go.mo
 github.com/eclipse/ditto-clients-golang v0.0.0-20211126080925-0676267c80ac h1:+Tl05cZOU8RXl95RP2iZ6LFM5CXxTVhz4ux0LtPUYR4=
 github.com/eclipse/ditto-clients-golang v0.0.0-20211126080925-0676267c80ac/go.mod h1:hAXWyOdJLxUQTK4nCc3xAHgEU5iQa5a5DzFeS8ErR60=
 github.com/eclipse/paho.mqtt.golang v1.2.0/go.mod h1:H9keYFcgq3Qr5OUJm/JZI/i6U7joQ8SYLhZwfeOo6Ts=
-github.com/eclipse/paho.mqtt.golang v1.3.5 h1:sWtmgNxYM9P2sP+xEItMozsR3w0cqZFlqnNN1bdl41Y=
-github.com/eclipse/paho.mqtt.golang v1.3.5/go.mod h1:eTzb4gxwwyWpqBUHGQZ4ABAV7+Jgm1PklsYT/eo8Hcc=
 github.com/eclipse/paho.mqtt.golang v1.4.1 h1:tUSpviiL5G3P9SZZJPC4ZULZJsxQKXxfENpMvdbAXAI=
 github.com/eclipse/paho.mqtt.golang v1.4.1/go.mod h1:JGt0RsEwEX+Xa/agj90YJ9d9DH2b7upDZMK9HRbFvCA=
 github.com/golang/mock v1.6.0 h1:ErTB+efbowRARo13NNdxyJji2egdxLGQhRaY+DUumQc=
