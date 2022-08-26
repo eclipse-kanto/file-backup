@@ -3,9 +3,9 @@ module github.com/eclipse-kanto/file-backup
 go 1.17
 
 require (
-	github.com/eclipse-kanto/file-upload v0.1.0-M1.0.20220803092511-39328590c3c8
+	github.com/eclipse-kanto/file-upload v0.1.0-M1.0.20220819091951-08d3c358eeb6
 	github.com/eclipse/ditto-clients-golang v0.0.0-20211126080925-0676267c80ac
-	github.com/eclipse/paho.mqtt.golang v1.3.5
+	github.com/eclipse/paho.mqtt.golang v1.4.1
 )
 
 require (
@@ -32,6 +32,7 @@ require (
 	github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4 // indirect
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
 	golang.org/x/net v0.0.0-20211123203042-d83791d6bcd9 // indirect
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 )

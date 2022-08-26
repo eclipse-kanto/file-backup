@@ -38,7 +38,7 @@ func main() {
 	defer loggerOut.Close()
 
 	if warn != nil {
-		logger.Warning(warn)
+		logger.Warn(warn)
 	}
 
 	logger.Infof("backup config: %+v", config.BackupAndRestoreConfig)
