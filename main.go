@@ -31,7 +31,7 @@ func main() {
 
 	config.Validate()
 
-	loggerOut, err := logger.SetupLogger(&config.LogConfig)
+	loggerOut, err := logger.SetupLogger(&config.LogConfig, "[FILE BACKUP]")
 	if err != nil {
 		log.Fatalln("Failed to initialize logger: ", err)
 	}

@@ -57,7 +57,7 @@ type BackupFileConfig struct {
 var configNames = map[string]string{
 	"featureID": "BackupAndRestore", "feature": "BackupAndRestore", "period": "Backup period",
 	"action": "backup", "actions": "backups", "running_actions": "uploads/backups",
-	"transfers": "uploads/downloads",
+	"transfers": "uploads/downloads", "logFile": "log/file-backup.log",
 	"mode": "Directory access mode. Restricts which directories can be requested dynamically for backup/restore" +
 		" through '" + client.BackupDirProperty + "' operation property.\nAllowed values are:" +
 		"\n  'strict' - dynamically specifying directory is forbidden, the 'dir' property must be used instead" +
@@ -77,7 +77,6 @@ func ParseFlags(version string) (*BackupFileConfig, flags.ConfigFileMissing) {
 
 	flags.InitFlagVars(flagsConfig, configNames, configSkip)
 	flag.Parse()
-
 	if *printVersion {
 		fmt.Println(version)
 		os.Exit(0)
@@ -86,6 +85,5 @@ func ParseFlags(version string) (*BackupFileConfig, flags.ConfigFileMissing) {
 	config := &BackupFileConfig{}
 	warn := flags.LoadConfigFromFile(*configFile, config, configNames, configSkip)
 	flags.ApplyFlags(config, *flagsConfig)
-
 	return config, warn
 }
