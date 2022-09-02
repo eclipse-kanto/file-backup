@@ -77,6 +77,7 @@ func ParseFlags(version string) (*BackupFileConfig, flags.ConfigFileMissing) {
 
 	flags.InitFlagVars(flagsConfig, configNames, configSkip)
 	flag.Parse()
+
 	if *printVersion {
 		fmt.Println(version)
 		os.Exit(0)
@@ -85,5 +86,6 @@ func ParseFlags(version string) (*BackupFileConfig, flags.ConfigFileMissing) {
 	config := &BackupFileConfig{}
 	warn := flags.LoadConfigFromFile(*configFile, config, configNames, configSkip)
 	flags.ApplyFlags(config, *flagsConfig)
+
 	return config, warn
 }
