@@ -422,7 +422,7 @@ func (br *BackupAndRestore) doRestore(status *backupAndRestoreStatus, providers 
 		err := os.Remove(backupFile)
 
 		if err != nil {
-			logger.Warnf("failed to delete dowloaded file %s: %v", backupFile, err)
+			logger.Warnf("failed to delete downloaded file %s: %v", backupFile, err)
 		}
 	}
 
