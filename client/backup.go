@@ -104,7 +104,7 @@ func (cfg *BackupAndRestoreConfig) Validate() {
 
 	if cfg.Dir != "" {
 		if !pathExisting(cfg.Dir) {
-			log.Fatalf("Directory '%s' not found!\n", cfg.Dir)
+			log.Printf("Directory '%s' not found!\n", cfg.Dir)
 		}
 	}
 
