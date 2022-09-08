@@ -1,1 +1,1 @@
-{"logFile": "/var/log/file-backup/log.txt", "dir": "/var/tmp/file-backup", "mode": "scoped"}
+{"logFile": "/var/log/file-backup/file-backup.log", "dir": "/var/tmp/file-backup", "mode": "scoped"}
