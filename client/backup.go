@@ -370,7 +370,7 @@ func (br *BackupAndRestore) doBackup(status *backupAndRestoreStatus, providers [
 	}
 
 	if err == nil {
-		err = zipDir(dir, path) //TODO - progress report?
+		err = zipDir(dir, path)
 	}
 
 	if temp {
@@ -406,7 +406,7 @@ func (br *BackupAndRestore) doRestore(status *backupAndRestoreStatus, providers 
 	if err == nil {
 		downloadURL := options[uploaders.URLProp]
 		headers := uploaders.ExtractDictionary(options, uploaders.HeadersPrefix)
-		err = br.downloadFile(downloadURL, headers, backupFile) //TODO - report progress?
+		err = br.downloadFile(downloadURL, headers, backupFile)
 	}
 
 	if err == nil {
@@ -422,7 +422,7 @@ func (br *BackupAndRestore) doRestore(status *backupAndRestoreStatus, providers 
 		err := os.Remove(backupFile)
 
 		if err != nil {
-			logger.Warnf("failed to delete dowloaded file %s: %v", backupFile, err)
+			logger.Warnf("failed to delete downloaded file %s: %v", backupFile, err)
 		}
 	}
 

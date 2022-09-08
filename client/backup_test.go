@@ -534,7 +534,6 @@ func checkFeatureProperties(t *testing.T, value map[string]interface{}) {
 	props := value[properties].(map[string]interface{})
 	assertEqual(t, "feature type", featureType, props["type"])
 	assertEqual(t, "feature context", featureContext, props["context"])
-	//TODO properties
 }
 
 func assertResponseOk(t *testing.T, resp *upload.ErrorResponse) {
