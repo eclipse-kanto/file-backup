@@ -3,7 +3,7 @@ module github.com/eclipse-kanto/file-backup
 go 1.17
 
 require (
-	github.com/eclipse-kanto/file-upload v0.1.0-M1.0.20220819091951-08d3c358eeb6
+	github.com/eclipse-kanto/file-upload v0.1.0-M1.0.20220902132952-2696050312e5
 	github.com/eclipse/ditto-clients-golang v0.0.0-20211126080925-0676267c80ac
 	github.com/eclipse/paho.mqtt.golang v1.4.1
 )
