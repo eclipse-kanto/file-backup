@@ -113,8 +113,8 @@ func TestPeriodicBackup(t *testing.T) {
 
 	count := int(duration/time.Duration(testCfg.Period)) - 1
 	for i := 0; i < count; i++ {
-		checkBackupState(t, client, backupStarted)
-		checkBackupState(t, client, backupFinished)
+		checkBackupState(t, client, BackupStarted)
+		checkBackupState(t, client, BackupFinished)
 
 		client.liveMsg(t, request)
 	}
@@ -375,8 +375,8 @@ func runBackupOperation(t *testing.T, b *BackupAndRestore, client *mockedClient,
 	resp := b.HandleOperation("backup", payload)
 	assertResponseOk(t, resp)
 
-	checkBackupState(t, client, backupStarted)
-	checkBackupState(t, client, backupFinished)
+	checkBackupState(t, client, BackupStarted)
+	checkBackupState(t, client, BackupFinished)
 
 	v := client.liveMsg(t, request)
 	file := getFileFromMsg(t, v)
@@ -412,12 +412,12 @@ func runRestoreOperation(t *testing.T, b *BackupAndRestore, client *mockedClient
 	resp := b.HandleOperation("restore", payload)
 	assertResponseOk(t, resp)
 
-	checkBackupState(t, client, restoreStarted)
+	checkBackupState(t, client, RestoreStarted)
 
 	if expectSuccess {
-		checkBackupState(t, client, restoreFinished)
+		checkBackupState(t, client, RestoreFinished)
 	} else {
-		checkBackupState(t, client, restoreFailed)
+		checkBackupState(t, client, RestoreFailed)
 	}
 
 }
@@ -623,7 +623,7 @@ func (client *mockedClient) msg(t *testing.T, channel string, action string) map
 	select {
 	case env := <-ch:
 		assertEqual(t, "group ID", groupID, env.Topic.Namespace)
-		assertEqual(t, "device ID", deviceID, env.Topic.EntityID)
+		assertEqual(t, "device ID", deviceID, env.Topic.EntityName)
 		assertEqual(t, "action", action, string(env.Topic.Action))
 
 		// Valdidate its starting path.

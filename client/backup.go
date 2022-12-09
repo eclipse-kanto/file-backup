@@ -75,15 +75,19 @@ const (
 	// BackupDirProperty represents a constant for backup directory flag
 	BackupDirProperty = "backup.dir"
 
-	backupStarted  = "BACKUP_STARTED"
-	backupFinished = "BACKUP_FINISHED"
-	backupFailed   = "BACKUP_FAILED"
+	// LastOperationProperty represents a constant for lastOperation property of BackupAndRestore feature
+	LastOperationProperty = "lastOperation"
+)
 
-	restoreStarted  = "RESTORE_STARTED"
-	restoreFinished = "RESTORE_FINISHED"
-	restoreFailed   = "RESTORE_FAILED"
+// Constants for the BackupAndRestore states
+const (
+	BackupStarted  = "BACKUP_STARTED"
+	BackupFinished = "BACKUP_FINISHED"
+	BackupFailed   = "BACKUP_FAILED"
 
-	lastOperationProperty = "lastOperation"
+	RestoreStarted  = "RESTORE_STARTED"
+	RestoreFinished = "RESTORE_FINISHED"
+	RestoreFailed   = "RESTORE_FAILED"
 )
 
 // Error messages constants
@@ -154,7 +158,7 @@ func (br *BackupAndRestore) Connect(mqttClient MQTT.Client, edgeCfg *upload.Edge
 	br.uploadable.Connect(mqttClient, edgeCfg)
 
 	br.statusEvents.Start(func(e interface{}) {
-		br.uploadable.UpdateProperty(lastOperationProperty, e)
+		br.uploadable.UpdateProperty(LastOperationProperty, e)
 	})
 }
 
@@ -206,7 +210,7 @@ func (br *BackupAndRestore) HandleOperation(operation string, payload []byte) *u
 
 // OnTick periodically invokes an operation on backup and restore feature
 func (br *BackupAndRestore) OnTick() {
-	status, resp := br.startOperation(br.nextUID(), backupStarted)
+	status, resp := br.startOperation(br.nextUID(), BackupStarted)
 
 	if resp != nil {
 		logger.Errorf("periodic backup failed: %v", resp.Message)
@@ -240,7 +244,7 @@ func (br *BackupAndRestore) backup(payload []byte) *upload.ErrorResponse {
 			ErrorCode: upload.ErrorCodeExecutionFailed}
 	}
 
-	status, resp := br.startOperation(params.CorrelationID, backupStarted)
+	status, resp := br.startOperation(params.CorrelationID, BackupStarted)
 
 	if resp == nil {
 		go br.doBackup(status, params.Providers, params.Options)
@@ -271,7 +275,7 @@ func (br *BackupAndRestore) restore(payload []byte) *upload.ErrorResponse {
 			ErrorCode: upload.ErrorCodeExecutionFailed}
 	}
 
-	status, resp := br.startOperation(params.CorrelationID, restoreStarted)
+	status, resp := br.startOperation(params.CorrelationID, RestoreStarted)
 
 	if resp == nil {
 		go br.doRestore(status, params.Providers, params.Options)
@@ -385,11 +389,11 @@ func (br *BackupAndRestore) doBackup(status *backupAndRestoreStatus, providers [
 	br.mutex.Lock()
 	status.EndTime = time.Now()
 	if err != nil {
-		status.State = backupFailed
+		status.State = BackupFailed
 		status.Message = err.Error()
 	} else {
 		status.Progress = 100
-		status.State = backupFinished
+		status.State = BackupFinished
 	}
 
 	br.updateStatus(status)
@@ -430,11 +434,11 @@ func (br *BackupAndRestore) doRestore(status *backupAndRestoreStatus, providers 
 	br.mutex.Lock()
 	status.EndTime = time.Now()
 	if err != nil {
-		status.State = restoreFailed
+		status.State = RestoreFailed
 		status.Message = err.Error()
 	} else {
 		status.Progress = 100
-		status.State = restoreFinished
+		status.State = RestoreFinished
 	}
 
 	br.updateStatus(status)
@@ -478,10 +482,10 @@ func (br *BackupAndRestore) startOperation(correlationID string, newState string
 	defer br.mutex.Unlock()
 
 	if br.status != nil {
-		if br.status.State == backupStarted {
+		if br.status.State == BackupStarted {
 			return nil, &upload.ErrorResponse{Status: http.StatusConflict,
 				Message: "Backup operation is currently in progress!", ErrorCode: upload.ErrorCodeExecutionFailed}
-		} else if br.status.State == restoreStarted {
+		} else if br.status.State == RestoreStarted {
 			return nil, &upload.ErrorResponse{Status: http.StatusConflict,
 				Message: "Restore operation is currently in progress!", ErrorCode: upload.ErrorCodeExecutionFailed}
 		}
