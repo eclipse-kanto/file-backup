@@ -42,14 +42,14 @@ func (c *command) GetArg() string {
 	return c.arg
 }
 
-//MarshalJSON marshals command type to JSON
+// MarshalJSON marshals command type to JSON
 func (c *command) MarshalJSON() ([]byte, error) {
 	s := c.String()
 
 	return json.Marshal(s)
 }
 
-//UnmarshalJSON unmarshalls command type from JSON
+// UnmarshalJSON unmarshalls command type from JSON
 func (c *command) UnmarshalJSON(b []byte) error {
 	var value string
 	if err := json.Unmarshal(b, &value); err != nil {
