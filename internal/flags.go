@@ -26,7 +26,7 @@ import (
 
 const (
 	// Uploadable Flags
-	defaultName        = "BackupAndRestore"
+	defaultName        = client.BackupAndRestoreFeatureID
 	defaultType        = "file"
 	defaultContext     = "edge"
 	defaultPeriod      = time.Hour * 10
@@ -56,7 +56,7 @@ type BackupFileConfig struct {
 }
 
 var configNames = map[string]string{
-	"featureID": "BackupAndRestore", "feature": "BackupAndRestore", "period": "Backup period",
+	"featureID": client.BackupAndRestoreFeatureID, "feature": client.BackupAndRestoreFeatureID, "period": "Backup period",
 	"action": "backup", "actions": "backups", "running_actions": "uploads/backups",
 	"transfers": "uploads/downloads", "logFile": "log/file-backup.log",
 	"mode": "Directory access mode. Restricts which directories can be requested dynamically for backup/restore" +

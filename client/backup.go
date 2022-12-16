@@ -90,6 +90,17 @@ const (
 	RestoreFailed   = "RESTORE_FAILED"
 )
 
+// Constant for BackupAndRestore feature ID
+const (
+	BackupAndRestoreFeatureID = "BackupAndRestore"
+)
+
+// Constants for BackupAndRestore feature operations
+const (
+	OperationBackup  = "backup"
+	OperationRestore = "restore"
+)
+
 // Error messages constants
 const (
 	ErrNoDownloadURL     = "Download URL not specified!"
@@ -197,9 +208,9 @@ func (br *BackupAndRestore) DoTrigger(correlationID string, options map[string]s
 // HandleOperation invokes an operation, using the provided payload data
 func (br *BackupAndRestore) HandleOperation(operation string, payload []byte) *upload.ErrorResponse {
 	switch operation {
-	case "backup":
+	case OperationBackup:
 		return br.backup(payload)
-	case "restore":
+	case OperationRestore:
 		return br.restore(payload)
 	default:
 		msg := fmt.Sprintf("Unsupported operation '%s'!", operation)

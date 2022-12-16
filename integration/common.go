@@ -17,12 +17,7 @@ import (
 )
 
 const (
-	featureID = "BackupAndRestore"
-
 	backupFilesCount = 5
-
-	operationBackup  = "backup"
-	operationRestore = "restore"
 
 	eventFilterTemplate = "like(resource:path,'/features/%s/*')"
 

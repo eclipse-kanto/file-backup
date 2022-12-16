@@ -59,7 +59,7 @@ func (suite *fileBackupSuite) SetupSuite() {
 	suite.AssertEmptyDir(suite.backupAndRestoreCfg.RestoreDir)
 
 	suite.ThingURL = util.GetThingURL(suite.Cfg.DigitalTwinAPIAddress, suite.ThingCfg.DeviceID)
-	suite.FeatureURL = util.GetFeatureURL(suite.ThingURL, featureID)
+	suite.FeatureURL = util.GetFeatureURL(suite.ThingURL, client.BackupAndRestoreFeatureID)
 }
 
 func (suite *fileBackupSuite) TearDownSuite() {
@@ -108,14 +108,14 @@ func (suite *fileBackupSuite) testBackupAndRestore() {
 	params, err := newBackupAndRestoreParams(backupDir, "")
 	require.NoError(suite.T(), err, msgFailedInitializeBackupAndRestoreParams)
 	backupOpFunc := func() string {
-		requestedFiles := suite.UploadRequests(featureID, operationBackup, params, 1)
+		requestedFiles := suite.UploadRequests(client.BackupAndRestoreFeatureID, client.OperationBackup, params, 1)
 		require.Equal(suite.T(), 1, len(requestedFiles), "there must be only 1 uploaded backup file")
-		suite.StartUploads(featureID, requestedFiles)
+		suite.StartUploads(client.BackupAndRestoreFeatureID, requestedFiles)
 
 		var restoreURL string
 		for correlationID := range requestedFiles { // 1 element
 			restoreURL, err = suite.DownloadURL(correlationID)
-			require.NoErrorf(suite.T(), err, "cannot get download url for upload %s", correlationID)
+			require.NoErrorf(suite.T(), err, "cannot get download URL for upload %s", correlationID)
 		}
 		return restoreURL
 	}
@@ -128,8 +128,8 @@ func (suite *fileBackupSuite) testBackupAndRestore() {
 	params, err = newBackupAndRestoreParams(restoreDir, restoreURL)
 	require.NoError(suite.T(), err, msgFailedInitializeBackupAndRestoreParams)
 	restoreOpFunc := func() string {
-		_, err = util.ExecuteOperation(suite.Cfg, suite.FeatureURL, operationRestore, params)
-		require.NoErrorf(suite.T(), err, msgFailedExecuteOperation, operationRestore)
+		_, err = util.ExecuteOperation(suite.Cfg, suite.FeatureURL, client.OperationRestore, params)
+		require.NoErrorf(suite.T(), err, msgFailedExecuteOperation, client.OperationRestore)
 		return ""
 	}
 	restoreCheckFunc := func(statuses []interface{}) {
@@ -144,7 +144,7 @@ func (suite *fileBackupSuite) runOperation(operation func() string, statusCheck 
 	require.NoError(suite.T(), err, msgFailedCreateWebsocketConnection)
 	defer conn.Close()
 
-	util.SubscribeForWSMessages(suite.Cfg, conn, util.StartSendEvents, fmt.Sprintf(eventFilterTemplate, featureID))
+	util.SubscribeForWSMessages(suite.Cfg, conn, util.StartSendEvents, fmt.Sprintf(eventFilterTemplate, client.BackupAndRestoreFeatureID))
 	defer util.UnsubscribeFromWSMessages(suite.Cfg, conn, util.StopSendEvents)
 
 	result := operation()
@@ -154,7 +154,7 @@ func (suite *fileBackupSuite) runOperation(operation func() string, statusCheck 
 }
 
 func (suite *fileBackupSuite) getLastOperationStatuses(conn *websocket.Conn, terminalStates ...string) []interface{} {
-	pathLastOperation := util.GetFeaturePropertyPath(featureID, client.LastOperationProperty)
+	pathLastOperation := util.GetFeaturePropertyPath(client.BackupAndRestoreFeatureID, client.LastOperationProperty)
 	topicCreated := util.GetTwinEventTopic(suite.ThingCfg.DeviceID, protocol.ActionCreated)
 	topicModified := util.GetTwinEventTopic(suite.ThingCfg.DeviceID, protocol.ActionModified)
 

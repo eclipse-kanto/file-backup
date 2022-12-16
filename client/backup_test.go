@@ -340,7 +340,7 @@ func assertDirRestoreError(t *testing.T, b *BackupAndRestore, dir string, errorM
 	options := map[string]string{uploaders.URLProp: "http://localhost/fake", BackupDirProperty: dir}
 
 	payload := getBackupRestorePayload(t, options)
-	resp := b.HandleOperation("restore", payload)
+	resp := b.HandleOperation(OperationRestore, payload)
 	assertResponse(t, resp, http.StatusBadRequest, errorMsg)
 }
 
@@ -372,7 +372,7 @@ func runBackupOperation(t *testing.T, b *BackupAndRestore, client *mockedClient,
 	t.Helper()
 
 	payload := getBackupRestorePayload(t, options)
-	resp := b.HandleOperation("backup", payload)
+	resp := b.HandleOperation(OperationBackup, payload)
 	assertResponseOk(t, resp)
 
 	checkBackupState(t, client, BackupStarted)
