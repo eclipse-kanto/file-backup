@@ -21,7 +21,6 @@ const (
 
 	eventFilterTemplate = "like(resource:path,'/features/%s/*')"
 
-	msgNoUploadCorrelationID                  = "no upload with correlation id: %s"
 	msgFailedExecuteOperation                 = "failed to execute operation %s"
 	msgFailedInitializeBackupAndRestoreParams = "failed to initialize backup and restore parameters"
 	msgFailedReadDirectory                    = "failed to read directory %s"
