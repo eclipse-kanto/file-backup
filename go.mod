@@ -3,9 +3,13 @@ module github.com/eclipse-kanto/file-backup
 go 1.17
 
 require (
-	github.com/eclipse-kanto/file-upload v0.1.0-M1.0.20220902132952-2696050312e5
-	github.com/eclipse/ditto-clients-golang v0.0.0-20211126080925-0676267c80ac
+	github.com/caarlos0/env/v6 v6.10.1
+	github.com/eclipse-kanto/file-upload v0.1.0-M2.0.20221209081936-528442b4fd43
+	github.com/eclipse-kanto/kanto/integration/util v0.0.0-20221202134037-d46d274df5c4
+	github.com/eclipse/ditto-clients-golang v0.0.0-20220225085802-cf3b306280d3
 	github.com/eclipse/paho.mqtt.golang v1.4.1
+	github.com/stretchr/testify v1.8.1
+	golang.org/x/net v0.0.0-20211123203042-d83791d6bcd9
 )
 
 require (
@@ -26,13 +30,15 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sso v1.3.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.5.0 // indirect
 	github.com/aws/smithy-go v1.5.0 // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
-	golang.org/x/net v0.0.0-20211123203042-d83791d6bcd9 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
