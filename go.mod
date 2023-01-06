@@ -4,8 +4,8 @@ go 1.17
 
 require (
 	github.com/caarlos0/env/v6 v6.10.1
-	github.com/eclipse-kanto/file-upload v0.1.0-M2.0.20221221103854-bca5f36809b4
-	github.com/eclipse-kanto/kanto/integration/util v0.0.0-20221202134037-d46d274df5c4
+	github.com/eclipse-kanto/file-upload v0.1.0-M2.0.20230106094105-baea90603223
+	github.com/eclipse-kanto/kanto/integration/util v0.0.0-20230103144956-911e45a2bf55
 	github.com/eclipse/ditto-clients-golang v0.0.0-20220225085802-cf3b306280d3
 	github.com/eclipse/paho.mqtt.golang v1.4.1
 	github.com/stretchr/testify v1.8.1

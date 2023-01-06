@@ -60,6 +60,9 @@ func (suite *fileBackupSuite) SetupSuite() {
 
 	suite.ThingURL = util.GetThingURL(suite.Cfg.DigitalTwinAPIAddress, suite.ThingCfg.DeviceID)
 	suite.FeatureURL = util.GetFeatureURL(suite.ThingURL, client.BackupAndRestoreFeatureID)
+	suite.UploadCfg = fut.UploadTestConfig{
+		HTTPServer: suite.backupAndRestoreCfg.HTTPServer,
+	}
 }
 
 func (suite *fileBackupSuite) TearDownSuite() {
