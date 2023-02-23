@@ -154,23 +154,23 @@ golang/go (1.19.4)
 * Project: https://github.com/golang/go
 * Source:  https://github.com/golang/go/releases/tag/go1.19.4
 
-golang.org/x/text (v0.3.7)
+golang.org/x/text (v0.7.0)
 
 * License: BSD 3-Clause "New" or "Revised" License
 * Project: https://pkg.go.dev/golang.org/x/text
-* Source:  https://github.com/golang/text/releases/tag/v0.3.7
+* Source:  https://github.com/golang/text/tree/v0.7.0
 
-golang.org/x/crypto (v0.0.0-20201016220609-9e8e0b390897)
+golang.org/x/crypto (v0.6.0)
 
 * License: BSD 3-Clause "New" or "Revised" License
 * Project: https://pkg.go.dev/golang.org/x/crypto
-* Source:  https://github.com/golang/crypto/tree/9e8e0b390897c84cad53ebe9ed2d1d331a5394d9
+* Source:  https://github.com/golang/crypto/tree/v0.6.0
 
-golang.org/x/net (v0.0.0-20211123203042-d83791d6bcd9)
+golang.org/x/net (v0.7.0)
 
 * License: BSD 3-Clause "New" or "Revised" License
 * Project: https://pkg.go.dev/golang.org/x/net
-* Source:  https://github.com/golang/net/tree/d83791d6bcd9ec2bdaacd08f4da4718370382c74
+* Source:  https://github.com/golang/net/tree/v0.7.0
 
 golang.org/x/sync (v0.0.0-20210220032951-036812b2e83c)
 
