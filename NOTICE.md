@@ -160,12 +160,6 @@ golang.org/x/text (v0.7.0)
 * Project: https://pkg.go.dev/golang.org/x/text
 * Source:  https://github.com/golang/text/tree/v0.7.0
 
-golang.org/x/crypto (v0.6.0)
-
-* License: BSD 3-Clause "New" or "Revised" License
-* Project: https://pkg.go.dev/golang.org/x/crypto
-* Source:  https://github.com/golang/crypto/tree/v0.6.0
-
 golang.org/x/net (v0.7.0)
 
 * License: BSD 3-Clause "New" or "Revised" License
@@ -184,12 +178,6 @@ azure-sdk-for-go/sdk/azcore (0.20.0)
 * Project: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azcore 
 * Source:  https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.20.0/sdk/azcore
 
-azure-sdk-for-go/sdk/azidentity (0.12.0)
-
-* License: MIT License
-* Project: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity
-* Source:  https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v0.12.0/sdk/azidentity
-
 azure-sdk-for-go/sdk/internal (0.8.1)
 
 * License: MIT License
@@ -201,12 +189,6 @@ azure-sdk-for-go/sdk/storage/azblob (0.2.0)
 * License: MIT License
 * Project: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob
 * Source:  https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.2.0/sdk/storage/azblob
-
-pkg/browser (v0.0.0-20180916011732-0a3d74bf9ce4)
-
-* License: BSD 2-Clause "Simplified" License
-* Project: https://github.com/pkg/browser
-* Source:  https://github.com/pkg/browser/tree/0a3d74bf9ce488f035cf5bc36f753a711bc74334
 
 ## Cryptography
 
