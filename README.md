@@ -1,6 +1,8 @@
-![Kanto logo](https://github.com/eclipse-kanto/kanto/raw/main/logo/kanto.svg)
+[![Kanto logo](https://github.com/eclipse-kanto/kanto/raw/main/logo/kanto.svg)](https://eclipse.dev/kanto/)
 
 # Eclipse Kanto - File Backup
+
+[![Coverage](https://github.com/eclipse-kanto/file-backup/wiki/coverage.svg)](#)
 
 ## Overview
 
